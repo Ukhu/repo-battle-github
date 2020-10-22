@@ -1,0 +1,19 @@
+{
+  "name": "repo-battle-github",
+  "version": "1.0.0",
+  "description": "Compare stats from two different github users and view most active repos on Github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Osaukhu Iyamuosa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ukhu/repo-battle-github.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ukhu/repo-battle-github/issues"
+  },
+  "homepage": "https://github.com/Ukhu/repo-battle-github#readme"
+}
