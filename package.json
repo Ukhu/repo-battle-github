@@ -4,7 +4,7 @@
   "description": "Compare stats from two different github users and view most active repos on Github",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve"
   },
   "author": "Osaukhu Iyamuosa",
   "license": "MIT",
@@ -15,5 +15,21 @@
   "bugs": {
     "url": "https://github.com/Ukhu/repo-battle-github/issues"
   },
-  "homepage": "https://github.com/Ukhu/repo-battle-github#readme"
+  "homepage": "https://github.com/Ukhu/repo-battle-github#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }
