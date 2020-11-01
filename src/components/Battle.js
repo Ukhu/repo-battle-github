@@ -66,7 +66,7 @@ class PlayerInput extends React.Component {
             value={this.state.username}
             onChange={this.handleChange}/>
           <button
-            className='btn dark-btn'
+            className='btn btn-dark'
             type='submit'
             disabled={!this.state.username}>
             Submit
@@ -141,7 +141,16 @@ class Battle extends React.Component {
     const {playerOne, playerTwo, battle} = this.state;
 
     if (battle === true) {
-      return <Results playerOne={playerOne} playerTwo={playerTwo} />
+      return (
+        <Results 
+          playerOne={playerOne}
+          playerTwo={playerTwo}
+          onReset={() => this.setState({
+            playerOne: null,
+            playerTwo: null,
+            battle: false
+          })}/>
+      )
     }
 
     return (
@@ -179,7 +188,7 @@ class Battle extends React.Component {
 
           {playerOne && playerTwo && (
             <button
-              className='btn dark-btn btn-space'
+              className='btn btn-dark btn-space'
               onClick={() => this.setState({battle: true})}>
               Battle
             </button>

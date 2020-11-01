@@ -202,12 +202,12 @@ li {
   max-width: 200px;
 }
 
-.dark-btn {
+.btn-dark {
   color: #e6e6e6;
   background: #141414;
 }
 
-.dark-btn:disabled {
+.btn-dark:disabled {
   background: #f2f2f2;
   color: #c7c7c7;
 }
