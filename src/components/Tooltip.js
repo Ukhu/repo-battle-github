@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withHover from './withHover';
+import Hover from './Hover';
 
 const styles = {
   container: {
@@ -24,29 +24,23 @@ const styles = {
   }
 };
 
-function Tooltip({text, children, hovering}) {
+function Tooltip({text, children}) {
   return (
-    <div style={styles.container}>
-      {hovering === true && <div style={styles.tooltip}>{text}</div>}
-      {children}
-    </div>
+    <Hover>
+      {(hovering) => {
+        return (
+          <div style={styles.container}>
+            {hovering === true && <div style={styles.tooltip}>{text}</div>}
+            {children}
+          </div>
+        )
+      }}
+    </Hover>
   )
 }
 
 Tooltip.propTypes = {
-  text: PropTypes.string.isRequired,
-  hovering: PropTypes.bool.isRequired
+  text: PropTypes.string.isRequired
 }
-
-/**
- * The second argument is to specify the prop that the 
- * wrapped component is expecting to detect the hover state.
- * This is to avoid name collisions e.g if withHover supplies 'hovering'
- * by default but Tooltip accepts 'hovering' originally as a prop
- * for something else and 'hover' for the hover state detection.
- * With the second argument, you can change what withHover supplies
- * to what Tooltip is already expecting as the hover detection prop.
- * 
- */
  
-export default withHover(Tooltip, 'hovering'); 
+export default Tooltip; 
