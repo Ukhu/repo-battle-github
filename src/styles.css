@@ -39,6 +39,7 @@ li {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .grid {
