@@ -5,6 +5,7 @@ import Card from './Card'
 import PropTypes from 'prop-types'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
+import { ThemeConsumer } from '../contexts/theme'
 
 function ProfileList({profile}) {
   return (
@@ -94,31 +95,35 @@ class Results extends React.Component {
     }
 
     return (
-      <React.Fragment>
-        <div className='grid space-around container-sm'>
-          <Card
-            header={winner.score === loser.score ? 'Tie' : 'Winner'}
-            subHeader={`Score: ${winner.score.toLocaleString()}`}
-            avatar={winner.profile.avatar_url}
-            name={winner.profile.login}
-            href={winner.profile.html_url}>
-              <ProfileList profile={winner.profile}/>
-          </Card>
-          <Card
-            header={winner.score === loser.score ? 'Tie' : 'Loser'}
-            subHeader={`Score: ${loser.score.toLocaleString()}`}
-            avatar={loser.profile.avatar_url}
-            name={loser.profile.login}
-            href={loser.profile.html_url}>
-              <ProfileList profile={loser.profile}/>
-          </Card>
-        </div>
-        <button
-          onClick={this.props.onReset}
-          className='btn btn-dark btn-space'>
-            Reset
-        </button>
-      </React.Fragment>
+      <ThemeConsumer>
+        {({theme}) => (
+          <React.Fragment>
+            <div className='grid space-around container-sm'>
+              <Card
+                header={winner.score === loser.score ? 'Tie' : 'Winner'}
+                subHeader={`Score: ${winner.score.toLocaleString()}`}
+                avatar={winner.profile.avatar_url}
+                name={winner.profile.login}
+                href={winner.profile.html_url}>
+                  <ProfileList profile={winner.profile}/>
+              </Card>
+              <Card
+                header={winner.score === loser.score ? 'Tie' : 'Loser'}
+                subHeader={`Score: ${loser.score.toLocaleString()}`}
+                avatar={loser.profile.avatar_url}
+                name={loser.profile.login}
+                href={loser.profile.html_url}>
+                  <ProfileList profile={loser.profile}/>
+              </Card>
+            </div>
+            <button
+              onClick={this.props.onReset}
+              className={`btn ${theme === 'light' ? 'btn-dark' : 'btn-light'} btn-space`}>
+                Reset
+            </button>
+          </React.Fragment>
+        )}
+      </ThemeConsumer>
     )
   }
 }
