@@ -4,7 +4,7 @@ import Popular from './components/Popular'
 import Battle from './components/Battle'
 import Nav from './components/Nav'
 import { ThemeProvider } from './contexts/theme'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Results from './components/Results'
 import './styles.css'
 
@@ -30,9 +30,16 @@ class App extends React.Component {
             <div className="container">
               <Nav />
 
-              <Route exact path="/" component={Popular}/>
-              <Route exact path="/battle" component={Battle}/>
-              <Route path="/battle/results" component={Results}/>
+              <Switch>
+                <Route exact path="/" component={Popular}/>
+                <Route exact path="/battle" component={Battle}/>
+                <Route path="/battle/results" component={Results}/>
+                <Route render={() => (
+                  <h1 className="center-text">
+                    404
+                  </h1>
+                )}/>
+              </Switch>
             </div>
           </div>
         </ThemeProvider>
