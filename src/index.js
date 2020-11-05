@@ -9,16 +9,12 @@ import Results from './components/Results'
 import './styles.css'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      theme: 'dark',
-      toggleTheme: () => {
-        this.setState(({theme}) => ({
-          theme: theme === 'light' ? 'dark' : 'light'
-        }))
-      }
+  state = {
+    theme: 'dark',
+    toggleTheme: () => {
+      this.setState(({theme}) => ({
+        theme: theme === 'light' ? 'dark' : 'light'
+      }))
     }
   }
 
