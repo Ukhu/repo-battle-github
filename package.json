@@ -4,7 +4,8 @@
   "description": "Compare stats from two different github users and view most active repos on Github",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "NODE_ENV='production' webpack"
   },
   "author": "Osaukhu Iyamuosa",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
     "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.3.0",
     "css-loader": "^5.0.0",
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^2.0.0",
